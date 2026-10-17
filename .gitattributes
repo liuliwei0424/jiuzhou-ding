@@ -10,3 +10,4 @@
 *.ktx2 filter=lfs diff=lfs merge=lfs -text
 *.hdr filter=lfs diff=lfs merge=lfs -text
 *.exr filter=lfs diff=lfs merge=lfs -text
+public/models/p3-demo-ding.glb -filter -diff -merge -text
