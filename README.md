@@ -31,8 +31,8 @@ npm run build
 
 ## 协作流程
 
-- `main` 仅用于稳定版本，日常集成进入 `develop`。当前 GitHub 对私有仓库启用远端分支保护返回 403（需 GitHub Pro 或公开仓库），因此 `main` 目前**尚未被服务器强制禁止直接 push**。
-- 在具备分支保护条件前，团队约定不直接 push `main`；所有改动先经 Pull Request，由 P1 审核后合并。
+- `main` 仅用于稳定版本，日常集成进入 `develop`。GitHub 已启用 `main` 分支保护：必须通过 Pull Request 合并，管理员也不能绕过。
+- 所有改动先经 Pull Request，由 P1 审核后合并；保护规则不要求特定数量的批准审查。
 - P2：`asset/p2-ding`；P3：`feat/p3-scene`；P4：`feat/p4-ui`。
 - 每日提交个人分支并请求 P1 合并到 `develop`；合并前至少运行 `npm run build`。
 - 大型二进制资产使用 Git LFS；提交来源、许可和艺术复原说明。
