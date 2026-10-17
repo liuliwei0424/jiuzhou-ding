@@ -1,4 +1,5 @@
 import './style.css';
+import { mountScene } from './scene/bootstrap.js';
 
 const app = document.querySelector('#app');
 app.innerHTML = `
@@ -18,3 +19,6 @@ app.innerHTML = `
     </section>
   </main>
 `;
+
+const scene = mountScene(document.querySelector('#scene-root'));
+if (import.meta.hot) import.meta.hot.dispose(() => scene.dispose());
