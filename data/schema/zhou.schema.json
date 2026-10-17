@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/jiuzhou-ding/zhou.schema.json",
+  "title": "九州内容数据 v1",
+  "description": "九州鼎网页内容结构；史料内容需由编辑审核并逐条标注来源。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "provinces"],
+  "properties": {
+    "version": { "const": 1 },
+    "provinces": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": { "$ref": "#/$defs/province" }
+    }
+  },
+  "$defs": {
+    "province": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "layoutPosition", "intro", "currentAreas", "products", "sources"],
+      "properties": {
+        "id": { "type": "string", "enum": ["ji", "yan", "qing", "xu", "yang", "jing", "yu", "liang", "yong"] },
+        "name": { "type": "string", "enum": ["冀州", "兖州", "青州", "徐州", "扬州", "荆州", "豫州", "梁州", "雍州"] },
+        "layoutPosition": {
+          "type": "object",
+          "description": "网页示意场景中的鼎位置，不等同于历史地理坐标。",
+          "additionalProperties": false,
+          "required": ["x", "z"],
+          "properties": { "x": { "type": "number" }, "z": { "type": "number" } }
+        },
+        "intro": { "type": "string", "minLength": 1, "maxLength": 220 },
+        "currentAreas": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "products": { "type": "array", "items": { "type": "string" } },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["citation"],
+            "properties": {
+              "citation": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "format": "uri" },
+              "note": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
