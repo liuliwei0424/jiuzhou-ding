@@ -1,0 +1,1182 @@
+{
+  "version": 1,
+  "models": [
+    {
+      "file": "models/ding-base.glb",
+      "provinceId": null,
+      "label": "基础鼎",
+      "scale": 1.0,
+      "heightMeters": 0.8786,
+      "triangles": 13648,
+      "vertices": 6867,
+      "textureSize": 1024,
+      "fileSizeKB": 1319.8,
+      "textures": [
+        "public/textures/ding-base-basecolor.png",
+        "public/textures/ding-base-orm.png"
+      ],
+      "hotspots": [
+        {
+          "id": "ear-left",
+          "label": "立耳（左）",
+          "position": [
+            0.408,
+            0.898,
+            -0.0
+          ],
+          "radius": 0.04,
+          "note": "立于口沿、双足下探贴壁的双耳；艺术复原，形制参照商周圆鼎立耳。"
+        },
+        {
+          "id": "ear-right",
+          "label": "立耳（右）",
+          "position": [
+            -0.408,
+            0.898,
+            -0.0
+          ],
+          "radius": 0.04,
+          "note": "与左耳对称，供穿杠抬举之用（示意）。"
+        },
+        {
+          "id": "rim",
+          "label": "口沿（侈口）",
+          "position": [
+            0.0,
+            0.775,
+            0.408
+          ],
+          "radius": 0.03,
+          "note": "口沿外撇加厚，是商周圆鼎常见的受力与装饰部位。"
+        },
+        {
+          "id": "decor-band",
+          "label": "腹部纹饰带",
+          "position": [
+            0.0,
+            0.49,
+            0.431
+          ],
+          "radius": 0.045,
+          "note": "雷纹带为程序化生成的装饰性仿纹，不是对具体器物的摹写。"
+        },
+        {
+          "id": "inscription",
+          "label": "内壁铭文",
+          "position": [
+            0.0,
+            0.71,
+            0.37
+          ],
+          "radius": 0.028,
+          "note": "内壁仿铭文为抽象笔画，不构成可释读的文字，也不对应任何真实铭文。"
+        },
+        {
+          "id": "leg-front-left",
+          "label": "足（左前）",
+          "position": [
+            -0.251,
+            0.12,
+            0.145
+          ],
+          "radius": 0.04,
+          "note": "柱足，向下略外撇；三足承鼎是圆鼎的基本形制。"
+        },
+        {
+          "id": "leg-front-right",
+          "label": "足（右前）",
+          "position": [
+            0.251,
+            0.12,
+            0.145
+          ],
+          "radius": 0.04,
+          "note": "与左前足对称。"
+        },
+        {
+          "id": "leg-back",
+          "label": "足（后）",
+          "position": [
+            0.0,
+            0.12,
+            -0.297
+          ],
+          "radius": 0.04,
+          "note": "后足位于 +Z 方向。"
+        },
+        {
+          "id": "patina",
+          "label": "铜绿锈蚀",
+          "position": [
+            0.0,
+            0.32,
+            0.398
+          ],
+          "radius": 0.04,
+          "note": "锈蚀分布为艺术处理，用于表现埋藏环境差异，非检测结果。"
+        }
+      ]
+    },
+    {
+      "file": "models/ding-ji.glb",
+      "provinceId": "ji",
+      "label": "冀州",
+      "scale": 1.0,
+      "heightMeters": 0.8786,
+      "triangles": 10640,
+      "vertices": 5363,
+      "textureSize": 512,
+      "fileSizeKB": 624.1,
+      "textures": [
+        "public/textures/ding-ji-basecolor.png",
+        "public/textures/ding-ji-orm.png"
+      ],
+      "hotspots": [
+        {
+          "id": "ear-left",
+          "label": "立耳（左）",
+          "position": [
+            0.408,
+            0.898,
+            -0.0
+          ],
+          "radius": 0.04,
+          "note": "立于口沿、双足下探贴壁的双耳；艺术复原，形制参照商周圆鼎立耳。"
+        },
+        {
+          "id": "ear-right",
+          "label": "立耳（右）",
+          "position": [
+            -0.408,
+            0.898,
+            -0.0
+          ],
+          "radius": 0.04,
+          "note": "与左耳对称，供穿杠抬举之用（示意）。"
+        },
+        {
+          "id": "rim",
+          "label": "口沿（侈口）",
+          "position": [
+            0.0,
+            0.775,
+            0.408
+          ],
+          "radius": 0.03,
+          "note": "口沿外撇加厚，是商周圆鼎常见的受力与装饰部位。"
+        },
+        {
+          "id": "decor-band",
+          "label": "腹部纹饰带",
+          "position": [
+            0.0,
+            0.49,
+            0.431
+          ],
+          "radius": 0.045,
+          "note": "雷纹带为程序化生成的装饰性仿纹，不是对具体器物的摹写。"
+        },
+        {
+          "id": "inscription",
+          "label": "内壁铭文",
+          "position": [
+            0.0,
+            0.71,
+            0.37
+          ],
+          "radius": 0.028,
+          "note": "内壁仿铭文为抽象笔画，不构成可释读的文字，也不对应任何真实铭文。"
+        },
+        {
+          "id": "leg-front-left",
+          "label": "足（左前）",
+          "position": [
+            -0.251,
+            0.12,
+            0.145
+          ],
+          "radius": 0.04,
+          "note": "柱足，向下略外撇；三足承鼎是圆鼎的基本形制。"
+        },
+        {
+          "id": "leg-front-right",
+          "label": "足（右前）",
+          "position": [
+            0.251,
+            0.12,
+            0.145
+          ],
+          "radius": 0.04,
+          "note": "与左前足对称。"
+        },
+        {
+          "id": "leg-back",
+          "label": "足（后）",
+          "position": [
+            0.0,
+            0.12,
+            -0.297
+          ],
+          "radius": 0.04,
+          "note": "后足位于 +Z 方向。"
+        },
+        {
+          "id": "patina",
+          "label": "铜绿锈蚀",
+          "position": [
+            0.0,
+            0.32,
+            0.398
+          ],
+          "radius": 0.04,
+          "note": "锈蚀分布为艺术处理，用于表现埋藏环境差异，非检测结果。"
+        }
+      ]
+    },
+    {
+      "file": "models/ding-yan.glb",
+      "provinceId": "yan",
+      "label": "兖州",
+      "scale": 0.962,
+      "heightMeters": 0.8453,
+      "triangles": 10640,
+      "vertices": 5363,
+      "textureSize": 512,
+      "fileSizeKB": 661.1,
+      "textures": [
+        "public/textures/ding-yan-basecolor.png",
+        "public/textures/ding-yan-orm.png"
+      ],
+      "hotspots": [
+        {
+          "id": "ear-left",
+          "label": "立耳（左）",
+          "position": [
+            0.3925,
+            0.8639,
+            -0.0
+          ],
+          "radius": 0.0385,
+          "note": "立于口沿、双足下探贴壁的双耳；艺术复原，形制参照商周圆鼎立耳。"
+        },
+        {
+          "id": "ear-right",
+          "label": "立耳（右）",
+          "position": [
+            -0.3925,
+            0.8639,
+            -0.0
+          ],
+          "radius": 0.0385,
+          "note": "与左耳对称，供穿杠抬举之用（示意）。"
+        },
+        {
+          "id": "rim",
+          "label": "口沿（侈口）",
+          "position": [
+            0.0,
+            0.7456,
+            0.3925
+          ],
+          "radius": 0.0289,
+          "note": "口沿外撇加厚，是商周圆鼎常见的受力与装饰部位。"
+        },
+        {
+          "id": "decor-band",
+          "label": "腹部纹饰带",
+          "position": [
+            0.0,
+            0.4714,
+            0.4146
+          ],
+          "radius": 0.0433,
+          "note": "雷纹带为程序化生成的装饰性仿纹，不是对具体器物的摹写。"
+        },
+        {
+          "id": "inscription",
+          "label": "内壁铭文",
+          "position": [
+            0.0,
+            0.683,
+            0.3559
+          ],
+          "radius": 0.0269,
+          "note": "内壁仿铭文为抽象笔画，不构成可释读的文字，也不对应任何真实铭文。"
+        },
+        {
+          "id": "leg-front-left",
+          "label": "足（左前）",
+          "position": [
+            -0.2415,
+            0.1154,
+            0.1395
+          ],
+          "radius": 0.0385,
+          "note": "柱足，向下略外撇；三足承鼎是圆鼎的基本形制。"
+        },
+        {
+          "id": "leg-front-right",
+          "label": "足（右前）",
+          "position": [
+            0.2415,
+            0.1154,
+            0.1395
+          ],
+          "radius": 0.0385,
+          "note": "与左前足对称。"
+        },
+        {
+          "id": "leg-back",
+          "label": "足（后）",
+          "position": [
+            0.0,
+            0.1154,
+            -0.2857
+          ],
+          "radius": 0.0385,
+          "note": "后足位于 +Z 方向。"
+        },
+        {
+          "id": "patina",
+          "label": "铜绿锈蚀",
+          "position": [
+            0.0,
+            0.3078,
+            0.3829
+          ],
+          "radius": 0.0385,
+          "note": "锈蚀分布为艺术处理，用于表现埋藏环境差异，非检测结果。"
+        }
+      ]
+    },
+    {
+      "file": "models/ding-qing.glb",
+      "provinceId": "qing",
+      "label": "青州",
+      "scale": 0.944,
+      "heightMeters": 0.8294,
+      "triangles": 10640,
+      "vertices": 5363,
+      "textureSize": 512,
+      "fileSizeKB": 677.3,
+      "textures": [
+        "public/textures/ding-qing-basecolor.png",
+        "public/textures/ding-qing-orm.png"
+      ],
+      "hotspots": [
+        {
+          "id": "ear-left",
+          "label": "立耳（左）",
+          "position": [
+            0.3852,
+            0.8477,
+            -0.0
+          ],
+          "radius": 0.0378,
+          "note": "立于口沿、双足下探贴壁的双耳；艺术复原，形制参照商周圆鼎立耳。"
+        },
+        {
+          "id": "ear-right",
+          "label": "立耳（右）",
+          "position": [
+            -0.3852,
+            0.8477,
+            -0.0
+          ],
+          "radius": 0.0378,
+          "note": "与左耳对称，供穿杠抬举之用（示意）。"
+        },
+        {
+          "id": "rim",
+          "label": "口沿（侈口）",
+          "position": [
+            0.0,
+            0.7316,
+            0.3852
+          ],
+          "radius": 0.0283,
+          "note": "口沿外撇加厚，是商周圆鼎常见的受力与装饰部位。"
+        },
+        {
+          "id": "decor-band",
+          "label": "腹部纹饰带",
+          "position": [
+            0.0,
+            0.4626,
+            0.4069
+          ],
+          "radius": 0.0425,
+          "note": "雷纹带为程序化生成的装饰性仿纹，不是对具体器物的摹写。"
+        },
+        {
+          "id": "inscription",
+          "label": "内壁铭文",
+          "position": [
+            0.0,
+            0.6702,
+            0.3493
+          ],
+          "radius": 0.0264,
+          "note": "内壁仿铭文为抽象笔画，不构成可释读的文字，也不对应任何真实铭文。"
+        },
+        {
+          "id": "leg-front-left",
+          "label": "足（左前）",
+          "position": [
+            -0.2369,
+            0.1133,
+            0.1369
+          ],
+          "radius": 0.0378,
+          "note": "柱足，向下略外撇；三足承鼎是圆鼎的基本形制。"
+        },
+        {
+          "id": "leg-front-right",
+          "label": "足（右前）",
+          "position": [
+            0.2369,
+            0.1133,
+            0.1369
+          ],
+          "radius": 0.0378,
+          "note": "与左前足对称。"
+        },
+        {
+          "id": "leg-back",
+          "label": "足（后）",
+          "position": [
+            0.0,
+            0.1133,
+            -0.2804
+          ],
+          "radius": 0.0378,
+          "note": "后足位于 +Z 方向。"
+        },
+        {
+          "id": "patina",
+          "label": "铜绿锈蚀",
+          "position": [
+            0.0,
+            0.3021,
+            0.3757
+          ],
+          "radius": 0.0378,
+          "note": "锈蚀分布为艺术处理，用于表现埋藏环境差异，非检测结果。"
+        }
+      ]
+    },
+    {
+      "file": "models/ding-xu.glb",
+      "provinceId": "xu",
+      "label": "徐州",
+      "scale": 0.978,
+      "heightMeters": 0.8593,
+      "triangles": 10640,
+      "vertices": 5363,
+      "textureSize": 512,
+      "fileSizeKB": 652.6,
+      "textures": [
+        "public/textures/ding-xu-basecolor.png",
+        "public/textures/ding-xu-orm.png"
+      ],
+      "hotspots": [
+        {
+          "id": "ear-left",
+          "label": "立耳（左）",
+          "position": [
+            0.399,
+            0.8782,
+            -0.0
+          ],
+          "radius": 0.0391,
+          "note": "立于口沿、双足下探贴壁的双耳；艺术复原，形制参照商周圆鼎立耳。"
+        },
+        {
+          "id": "ear-right",
+          "label": "立耳（右）",
+          "position": [
+            -0.399,
+            0.8782,
+            -0.0
+          ],
+          "radius": 0.0391,
+          "note": "与左耳对称，供穿杠抬举之用（示意）。"
+        },
+        {
+          "id": "rim",
+          "label": "口沿（侈口）",
+          "position": [
+            0.0,
+            0.758,
+            0.399
+          ],
+          "radius": 0.0293,
+          "note": "口沿外撇加厚，是商周圆鼎常见的受力与装饰部位。"
+        },
+        {
+          "id": "decor-band",
+          "label": "腹部纹饰带",
+          "position": [
+            0.0,
+            0.4792,
+            0.4215
+          ],
+          "radius": 0.044,
+          "note": "雷纹带为程序化生成的装饰性仿纹，不是对具体器物的摹写。"
+        },
+        {
+          "id": "inscription",
+          "label": "内壁铭文",
+          "position": [
+            0.0,
+            0.6944,
+            0.3619
+          ],
+          "radius": 0.0274,
+          "note": "内壁仿铭文为抽象笔画，不构成可释读的文字，也不对应任何真实铭文。"
+        },
+        {
+          "id": "leg-front-left",
+          "label": "足（左前）",
+          "position": [
+            -0.2455,
+            0.1174,
+            0.1418
+          ],
+          "radius": 0.0391,
+          "note": "柱足，向下略外撇；三足承鼎是圆鼎的基本形制。"
+        },
+        {
+          "id": "leg-front-right",
+          "label": "足（右前）",
+          "position": [
+            0.2455,
+            0.1174,
+            0.1418
+          ],
+          "radius": 0.0391,
+          "note": "与左前足对称。"
+        },
+        {
+          "id": "leg-back",
+          "label": "足（后）",
+          "position": [
+            0.0,
+            0.1174,
+            -0.2905
+          ],
+          "radius": 0.0391,
+          "note": "后足位于 +Z 方向。"
+        },
+        {
+          "id": "patina",
+          "label": "铜绿锈蚀",
+          "position": [
+            0.0,
+            0.313,
+            0.3892
+          ],
+          "radius": 0.0391,
+          "note": "锈蚀分布为艺术处理，用于表现埋藏环境差异，非检测结果。"
+        }
+      ]
+    },
+    {
+      "file": "models/ding-yang.glb",
+      "provinceId": "yang",
+      "label": "扬州",
+      "scale": 1.022,
+      "heightMeters": 0.898,
+      "triangles": 10640,
+      "vertices": 5363,
+      "textureSize": 512,
+      "fileSizeKB": 679.2,
+      "textures": [
+        "public/textures/ding-yang-basecolor.png",
+        "public/textures/ding-yang-orm.png"
+      ],
+      "hotspots": [
+        {
+          "id": "ear-left",
+          "label": "立耳（左）",
+          "position": [
+            0.417,
+            0.9178,
+            -0.0
+          ],
+          "radius": 0.0409,
+          "note": "立于口沿、双足下探贴壁的双耳；艺术复原，形制参照商周圆鼎立耳。"
+        },
+        {
+          "id": "ear-right",
+          "label": "立耳（右）",
+          "position": [
+            -0.417,
+            0.9178,
+            -0.0
+          ],
+          "radius": 0.0409,
+          "note": "与左耳对称，供穿杠抬举之用（示意）。"
+        },
+        {
+          "id": "rim",
+          "label": "口沿（侈口）",
+          "position": [
+            0.0,
+            0.7921,
+            0.417
+          ],
+          "radius": 0.0307,
+          "note": "口沿外撇加厚，是商周圆鼎常见的受力与装饰部位。"
+        },
+        {
+          "id": "decor-band",
+          "label": "腹部纹饰带",
+          "position": [
+            0.0,
+            0.5008,
+            0.4405
+          ],
+          "radius": 0.046,
+          "note": "雷纹带为程序化生成的装饰性仿纹，不是对具体器物的摹写。"
+        },
+        {
+          "id": "inscription",
+          "label": "内壁铭文",
+          "position": [
+            0.0,
+            0.7256,
+            0.3781
+          ],
+          "radius": 0.0286,
+          "note": "内壁仿铭文为抽象笔画，不构成可释读的文字，也不对应任何真实铭文。"
+        },
+        {
+          "id": "leg-front-left",
+          "label": "足（左前）",
+          "position": [
+            -0.2565,
+            0.1226,
+            0.1482
+          ],
+          "radius": 0.0409,
+          "note": "柱足，向下略外撇；三足承鼎是圆鼎的基本形制。"
+        },
+        {
+          "id": "leg-front-right",
+          "label": "足（右前）",
+          "position": [
+            0.2565,
+            0.1226,
+            0.1482
+          ],
+          "radius": 0.0409,
+          "note": "与左前足对称。"
+        },
+        {
+          "id": "leg-back",
+          "label": "足（后）",
+          "position": [
+            0.0,
+            0.1226,
+            -0.3035
+          ],
+          "radius": 0.0409,
+          "note": "后足位于 +Z 方向。"
+        },
+        {
+          "id": "patina",
+          "label": "铜绿锈蚀",
+          "position": [
+            0.0,
+            0.327,
+            0.4068
+          ],
+          "radius": 0.0409,
+          "note": "锈蚀分布为艺术处理，用于表现埋藏环境差异，非检测结果。"
+        }
+      ]
+    },
+    {
+      "file": "models/ding-jing.glb",
+      "provinceId": "jing",
+      "label": "荆州",
+      "scale": 1.041,
+      "heightMeters": 0.9147,
+      "triangles": 10640,
+      "vertices": 5363,
+      "textureSize": 512,
+      "fileSizeKB": 692.3,
+      "textures": [
+        "public/textures/ding-jing-basecolor.png",
+        "public/textures/ding-jing-orm.png"
+      ],
+      "hotspots": [
+        {
+          "id": "ear-left",
+          "label": "立耳（左）",
+          "position": [
+            0.4247,
+            0.9348,
+            -0.0
+          ],
+          "radius": 0.0416,
+          "note": "立于口沿、双足下探贴壁的双耳；艺术复原，形制参照商周圆鼎立耳。"
+        },
+        {
+          "id": "ear-right",
+          "label": "立耳（右）",
+          "position": [
+            -0.4247,
+            0.9348,
+            -0.0
+          ],
+          "radius": 0.0416,
+          "note": "与左耳对称，供穿杠抬举之用（示意）。"
+        },
+        {
+          "id": "rim",
+          "label": "口沿（侈口）",
+          "position": [
+            0.0,
+            0.8068,
+            0.4247
+          ],
+          "radius": 0.0312,
+          "note": "口沿外撇加厚，是商周圆鼎常见的受力与装饰部位。"
+        },
+        {
+          "id": "decor-band",
+          "label": "腹部纹饰带",
+          "position": [
+            0.0,
+            0.5101,
+            0.4487
+          ],
+          "radius": 0.0468,
+          "note": "雷纹带为程序化生成的装饰性仿纹，不是对具体器物的摹写。"
+        },
+        {
+          "id": "inscription",
+          "label": "内壁铭文",
+          "position": [
+            0.0,
+            0.7391,
+            0.3852
+          ],
+          "radius": 0.0291,
+          "note": "内壁仿铭文为抽象笔画，不构成可释读的文字，也不对应任何真实铭文。"
+        },
+        {
+          "id": "leg-front-left",
+          "label": "足（左前）",
+          "position": [
+            -0.2613,
+            0.1249,
+            0.1509
+          ],
+          "radius": 0.0416,
+          "note": "柱足，向下略外撇；三足承鼎是圆鼎的基本形制。"
+        },
+        {
+          "id": "leg-front-right",
+          "label": "足（右前）",
+          "position": [
+            0.2613,
+            0.1249,
+            0.1509
+          ],
+          "radius": 0.0416,
+          "note": "与左前足对称。"
+        },
+        {
+          "id": "leg-back",
+          "label": "足（后）",
+          "position": [
+            0.0,
+            0.1249,
+            -0.3092
+          ],
+          "radius": 0.0416,
+          "note": "后足位于 +Z 方向。"
+        },
+        {
+          "id": "patina",
+          "label": "铜绿锈蚀",
+          "position": [
+            0.0,
+            0.3331,
+            0.4143
+          ],
+          "radius": 0.0416,
+          "note": "锈蚀分布为艺术处理，用于表现埋藏环境差异，非检测结果。"
+        }
+      ]
+    },
+    {
+      "file": "models/ding-yu.glb",
+      "provinceId": "yu",
+      "label": "豫州",
+      "scale": 1.08,
+      "heightMeters": 0.9489,
+      "triangles": 10640,
+      "vertices": 5363,
+      "textureSize": 512,
+      "fileSizeKB": 604.2,
+      "textures": [
+        "public/textures/ding-yu-basecolor.png",
+        "public/textures/ding-yu-orm.png"
+      ],
+      "hotspots": [
+        {
+          "id": "ear-left",
+          "label": "立耳（左）",
+          "position": [
+            0.4406,
+            0.9698,
+            -0.0
+          ],
+          "radius": 0.0432,
+          "note": "立于口沿、双足下探贴壁的双耳；艺术复原，形制参照商周圆鼎立耳。"
+        },
+        {
+          "id": "ear-right",
+          "label": "立耳（右）",
+          "position": [
+            -0.4406,
+            0.9698,
+            -0.0
+          ],
+          "radius": 0.0432,
+          "note": "与左耳对称，供穿杠抬举之用（示意）。"
+        },
+        {
+          "id": "rim",
+          "label": "口沿（侈口）",
+          "position": [
+            0.0,
+            0.837,
+            0.4406
+          ],
+          "radius": 0.0324,
+          "note": "口沿外撇加厚，是商周圆鼎常见的受力与装饰部位。"
+        },
+        {
+          "id": "decor-band",
+          "label": "腹部纹饰带",
+          "position": [
+            0.0,
+            0.5292,
+            0.4655
+          ],
+          "radius": 0.0486,
+          "note": "雷纹带为程序化生成的装饰性仿纹，不是对具体器物的摹写。"
+        },
+        {
+          "id": "inscription",
+          "label": "内壁铭文",
+          "position": [
+            0.0,
+            0.7668,
+            0.3996
+          ],
+          "radius": 0.0302,
+          "note": "内壁仿铭文为抽象笔画，不构成可释读的文字，也不对应任何真实铭文。"
+        },
+        {
+          "id": "leg-front-left",
+          "label": "足（左前）",
+          "position": [
+            -0.2711,
+            0.1296,
+            0.1566
+          ],
+          "radius": 0.0432,
+          "note": "柱足，向下略外撇；三足承鼎是圆鼎的基本形制。"
+        },
+        {
+          "id": "leg-front-right",
+          "label": "足（右前）",
+          "position": [
+            0.2711,
+            0.1296,
+            0.1566
+          ],
+          "radius": 0.0432,
+          "note": "与左前足对称。"
+        },
+        {
+          "id": "leg-back",
+          "label": "足（后）",
+          "position": [
+            0.0,
+            0.1296,
+            -0.3208
+          ],
+          "radius": 0.0432,
+          "note": "后足位于 +Z 方向。"
+        },
+        {
+          "id": "patina",
+          "label": "铜绿锈蚀",
+          "position": [
+            0.0,
+            0.3456,
+            0.4298
+          ],
+          "radius": 0.0432,
+          "note": "锈蚀分布为艺术处理，用于表现埋藏环境差异，非检测结果。"
+        }
+      ]
+    },
+    {
+      "file": "models/ding-liang.glb",
+      "provinceId": "liang",
+      "label": "梁州",
+      "scale": 0.951,
+      "heightMeters": 0.8356,
+      "triangles": 10640,
+      "vertices": 5363,
+      "textureSize": 512,
+      "fileSizeKB": 610.0,
+      "textures": [
+        "public/textures/ding-liang-basecolor.png",
+        "public/textures/ding-liang-orm.png"
+      ],
+      "hotspots": [
+        {
+          "id": "ear-left",
+          "label": "立耳（左）",
+          "position": [
+            0.388,
+            0.854,
+            -0.0
+          ],
+          "radius": 0.038,
+          "note": "立于口沿、双足下探贴壁的双耳；艺术复原，形制参照商周圆鼎立耳。"
+        },
+        {
+          "id": "ear-right",
+          "label": "立耳（右）",
+          "position": [
+            -0.388,
+            0.854,
+            -0.0
+          ],
+          "radius": 0.038,
+          "note": "与左耳对称，供穿杠抬举之用（示意）。"
+        },
+        {
+          "id": "rim",
+          "label": "口沿（侈口）",
+          "position": [
+            0.0,
+            0.737,
+            0.388
+          ],
+          "radius": 0.0285,
+          "note": "口沿外撇加厚，是商周圆鼎常见的受力与装饰部位。"
+        },
+        {
+          "id": "decor-band",
+          "label": "腹部纹饰带",
+          "position": [
+            0.0,
+            0.466,
+            0.4099
+          ],
+          "radius": 0.0428,
+          "note": "雷纹带为程序化生成的装饰性仿纹，不是对具体器物的摹写。"
+        },
+        {
+          "id": "inscription",
+          "label": "内壁铭文",
+          "position": [
+            0.0,
+            0.6752,
+            0.3519
+          ],
+          "radius": 0.0266,
+          "note": "内壁仿铭文为抽象笔画，不构成可释读的文字，也不对应任何真实铭文。"
+        },
+        {
+          "id": "leg-front-left",
+          "label": "足（左前）",
+          "position": [
+            -0.2387,
+            0.1141,
+            0.1379
+          ],
+          "radius": 0.038,
+          "note": "柱足，向下略外撇；三足承鼎是圆鼎的基本形制。"
+        },
+        {
+          "id": "leg-front-right",
+          "label": "足（右前）",
+          "position": [
+            0.2387,
+            0.1141,
+            0.1379
+          ],
+          "radius": 0.038,
+          "note": "与左前足对称。"
+        },
+        {
+          "id": "leg-back",
+          "label": "足（后）",
+          "position": [
+            0.0,
+            0.1141,
+            -0.2824
+          ],
+          "radius": 0.038,
+          "note": "后足位于 +Z 方向。"
+        },
+        {
+          "id": "patina",
+          "label": "铜绿锈蚀",
+          "position": [
+            0.0,
+            0.3043,
+            0.3785
+          ],
+          "radius": 0.038,
+          "note": "锈蚀分布为艺术处理，用于表现埋藏环境差异，非检测结果。"
+        }
+      ]
+    },
+    {
+      "file": "models/ding-yong.glb",
+      "provinceId": "yong",
+      "label": "雍州",
+      "scale": 1.064,
+      "heightMeters": 0.9349,
+      "triangles": 10640,
+      "vertices": 5363,
+      "textureSize": 512,
+      "fileSizeKB": 593.7,
+      "textures": [
+        "public/textures/ding-yong-basecolor.png",
+        "public/textures/ding-yong-orm.png"
+      ],
+      "hotspots": [
+        {
+          "id": "ear-left",
+          "label": "立耳（左）",
+          "position": [
+            0.4341,
+            0.9555,
+            -0.0
+          ],
+          "radius": 0.0426,
+          "note": "立于口沿、双足下探贴壁的双耳；艺术复原，形制参照商周圆鼎立耳。"
+        },
+        {
+          "id": "ear-right",
+          "label": "立耳（右）",
+          "position": [
+            -0.4341,
+            0.9555,
+            -0.0
+          ],
+          "radius": 0.0426,
+          "note": "与左耳对称，供穿杠抬举之用（示意）。"
+        },
+        {
+          "id": "rim",
+          "label": "口沿（侈口）",
+          "position": [
+            0.0,
+            0.8246,
+            0.4341
+          ],
+          "radius": 0.0319,
+          "note": "口沿外撇加厚，是商周圆鼎常见的受力与装饰部位。"
+        },
+        {
+          "id": "decor-band",
+          "label": "腹部纹饰带",
+          "position": [
+            0.0,
+            0.5214,
+            0.4586
+          ],
+          "radius": 0.0479,
+          "note": "雷纹带为程序化生成的装饰性仿纹，不是对具体器物的摹写。"
+        },
+        {
+          "id": "inscription",
+          "label": "内壁铭文",
+          "position": [
+            0.0,
+            0.7554,
+            0.3937
+          ],
+          "radius": 0.0298,
+          "note": "内壁仿铭文为抽象笔画，不构成可释读的文字，也不对应任何真实铭文。"
+        },
+        {
+          "id": "leg-front-left",
+          "label": "足（左前）",
+          "position": [
+            -0.2671,
+            0.1277,
+            0.1543
+          ],
+          "radius": 0.0426,
+          "note": "柱足，向下略外撇；三足承鼎是圆鼎的基本形制。"
+        },
+        {
+          "id": "leg-front-right",
+          "label": "足（右前）",
+          "position": [
+            0.2671,
+            0.1277,
+            0.1543
+          ],
+          "radius": 0.0426,
+          "note": "与左前足对称。"
+        },
+        {
+          "id": "leg-back",
+          "label": "足（后）",
+          "position": [
+            0.0,
+            0.1277,
+            -0.316
+          ],
+          "radius": 0.0426,
+          "note": "后足位于 +Z 方向。"
+        },
+        {
+          "id": "patina",
+          "label": "铜绿锈蚀",
+          "position": [
+            0.0,
+            0.3405,
+            0.4235
+          ],
+          "radius": 0.0426,
+          "note": "锈蚀分布为艺术处理，用于表现埋藏环境差异，非检测结果。"
+        }
+      ]
+    }
+  ],
+  "lod1": {
+    "file": "models/ding-base-lod1.glb",
+    "triangles": 9136,
+    "textureSize": 512,
+    "fileSizeKB": 577.4,
+    "textures": [
+      "public/textures/ding-base-lod1-basecolor.png",
+      "public/textures/ding-base-lod1-orm.png"
+    ]
+  },
+  "coordinateSystem": {
+    "up": "+Y",
+    "unit": "meter",
+    "origin": "器物足底平面中心",
+    "note": "glTF 坐标；position 为热点在模型局部空间的位置，随模型整体缩放一起计算。"
+  },
+  "disclaimer": "所有模型均为艺术复原示意，非考古还原。"
+}

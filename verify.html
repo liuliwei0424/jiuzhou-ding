@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>校验 · 九州鼎资产（P2）</title>
+<style>
+  :root {
+    --bg: #f6f4ef;
+    --panel: #ffffff;
+    --ink: #23201b;
+    --muted: #6f6a60;
+    --line: #e2ddd2;
+    --bronze: #8a6b3f;
+    --accent: #7a5c2e;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font: 14px/1.6 -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+  .wrap { display: grid; grid-template-columns: 1fr 340px; height: 100vh; }
+  #stage { position: relative; min-width: 0; }
+  #canvas-host { position: absolute; inset: 0; }
+  canvas { display: block; }
+  .badge {
+    position: absolute; left: 16px; top: 16px; z-index: 2;
+    background: rgba(255,255,255,.9); border: 1px solid var(--line);
+    padding: 6px 10px; border-radius: 6px; font-size: 12px; color: var(--muted);
+  }
+  .tip {
+    position: absolute; left: 16px; bottom: 16px; z-index: 2;
+    font-size: 12px; color: var(--muted); background: rgba(255,255,255,.86);
+    border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px;
+  }
+  aside {
+    border-left: 1px solid var(--line); background: var(--panel);
+    padding: 18px; overflow-y: auto;
+  }
+  h1 { font-size: 16px; margin: 0 0 4px; }
+  h2 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+       color: var(--muted); margin: 22px 0 8px; font-weight: 600; }
+  .disclaimer {
+    font-size: 12px; color: #8a5b2e; background: #fdf6ea;
+    border: 1px solid #efe0c4; border-radius: 6px; padding: 8px 10px; margin: 10px 0 0;
+  }
+  select, button {
+    font: inherit; width: 100%; padding: 7px 9px; border-radius: 6px;
+    border: 1px solid var(--line); background: #fff; color: var(--ink);
+  }
+  button { cursor: pointer; margin-top: 6px; }
+  button:hover { border-color: var(--bronze); }
+  dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; margin: 0; font-size: 13px; }
+  dt { color: var(--muted); }
+  dd { margin: 0; font-variant-numeric: tabular-nums; }
+  ul { margin: 0; padding-left: 18px; font-size: 13px; }
+  ul li { margin: 2px 0; }
+  code { background: #f2efe8; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+  #hotspot-note { font-size: 13px; color: #4a463e; min-height: 3em; }
+  .row { display: flex; gap: 8px; }
+  .row > * { flex: 1; }
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; grid-template-rows: 55vh auto; height: auto; }
+    aside { border-left: 0; border-top: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="stage">
+    <div id="canvas-host"></div>
+    <div class="badge">资产校验 · 艺术复原示意，非考古还原</div>
+    <div class="tip">拖动旋转 · 滚轮缩放 · 点击热点查看说明</div>
+  </div>
+
+  <aside>
+    <h1>九州鼎 · 资产校验</h1>
+    <p style="margin:0;color:var(--muted);font-size:12px">P2 交付自检页，供 P3 验收与 P1 审核。此页仅用于开发验收，不参与正式页面。</p>
+    <p class="disclaimer">所有模型为艺术复原示意，非考古还原。</p>
+
+    <h2>选择模型</h2>
+    <select id="model-select"></select>
+    <div class="row">
+      <button id="btn-reset">复位视角</button>
+      <button id="btn-manifest">导出热点清单</button>
+    </div>
+
+    <h2>当前模型</h2>
+    <dl>
+      <dt>文件</dt><dd id="m-file">—</dd>
+      <dt>三角面</dt><dd id="m-tris">—</dd>
+      <dt>顶点</dt><dd id="m-verts">—</dd>
+      <dt>纹理</dt><dd id="m-tex">—</dd>
+      <dt>总高</dt><dd id="m-height">—</dd>
+      <dt>实测高度</dt><dd id="m-measured">—</dd>
+      <dt>底面 Y</dt><dd id="m-miny">—</dd>
+    </dl>
+
+    <h2>热点（点击模型上的圆点）</h2>
+    <div id="hotspot-note">—</div>
+    <ul id="hotspot-list"></ul>
+
+    <h2>契约自检</h2>
+    <ul id="checks"></ul>
+  </aside>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.180.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.180.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const host = document.getElementById('canvas-host');
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(host.clientWidth, host.clientHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+host.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xf6f4ef);
+
+// 环境反射：金属材质必须有环境光，否则会发黑
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(38, host.clientWidth / host.clientHeight, 0.01, 100);
+camera.position.set(1.6, 1.2, 2.0);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0.45, 0);
+controls.enableDamping = true;
+controls.minDistance = 0.6;
+controls.maxDistance = 6;
+controls.maxPolarAngle = Math.PI * 0.52;
+
+const key = new THREE.DirectionalLight(0xfff3e0, 2.2);
+key.position.set(2.5, 3.5, 2.0);
+scene.add(key);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x8d8578, 0.8));
+
+const ground = new THREE.Mesh(
+  new THREE.CircleGeometry(4, 64),
+  new THREE.MeshStandardMaterial({ color: 0xe8e3d8, roughness: 0.95 })
+);
+ground.rotation.x = -Math.PI / 2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+const grid = new THREE.GridHelper(4, 20, 0xc9c2b4, 0xdcd6c9);
+grid.position.y = 0.001;
+scene.add(grid);
+
+const loader = new GLTFLoader();
+let current = null;
+let currentEntry = null;
+let markers = [];
+const markerGroup = new THREE.Group();
+scene.add(markerGroup);
+
+const el = id => document.getElementById(id);
+
+function resetView(height) {
+  const d = Math.max(1.6, height * 2.1);
+  camera.position.set(d * 0.62, height * 1.25, d * 0.78);
+  controls.target.set(0, height * 0.45, 0);
+  controls.update();
+}
+
+function clearMarkers() {
+  for (const m of markers) {
+    m.geometry.dispose();
+    m.material.dispose();
+    markerGroup.remove(m);
+  }
+  markers = [];
+}
+
+function addMarkers(entry) {
+  clearMarkers();
+  for (const hs of entry.hotspots || []) {
+    const geo = new THREE.SphereGeometry(hs.radius * 0.55, 12, 10);
+    const mat = new THREE.MeshBasicMaterial({ color: 0xd9822b, transparent: true, opacity: 0.85 });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.fromArray(hs.position);
+    mesh.userData.hotspot = hs;
+    markerGroup.add(mesh);
+    markers.push(mesh);
+  }
+}
+
+function updateChecks(entry, measured) {
+  const box = new THREE.Box3().setFromObject(current);
+  const minY = box.min.y;
+  const checks = [
+    ['加载成功', true],
+    ['底面 Y ≈ 0', Math.abs(minY) < 0.005, minY.toFixed(4)],
+    ['有 UV 坐标', (() => {
+      let ok = true;
+      current.traverse(o => { if (o.isMesh && !o.geometry.attributes.uv) ok = false; });
+      return ok;
+    })()],
+    ['热点数量 = 9', (entry.hotspots || []).length === 9, `${(entry.hotspots || []).length}`],
+    ['总高与 manifest 一致', Math.abs(measured - entry.heightMeters) < 0.01,
+      `${measured.toFixed(3)} / ${entry.heightMeters}`],
+  ];
+  el('checks').innerHTML = checks.map(([label, pass, extra]) =>
+    `<li>${pass ? '✅' : '❌'} ${label}${extra ? ` <code>${extra}</code>` : ''}</li>`
+  ).join('');
+  el('m-miny').textContent = minY.toFixed(4);
+  el('m-measured').textContent = measured.toFixed(3) + ' m';
+}
+
+async function load(entry) {
+  currentEntry = entry;
+  for (const m of markers) { m.geometry.dispose(); m.material.dispose(); }
+  markerGroup.clear();
+  markers = [];
+  if (current) { scene.remove(current); current = null; }
+
+  const gltf = await loader.loadAsync('/' + entry.file);
+  current = gltf.scene;
+  current.traverse(o => {
+    if (o.isMesh) {
+      o.material.envMapIntensity = 1.0;
+    }
+  });
+  scene.add(current);
+  addMarkers(entry);
+
+  const box = new THREE.Box3().setFromObject(current);
+  resetView(box.max.y - box.min.y);
+
+  el('m-file').textContent = entry.file;
+  el('m-tris').textContent = entry.triangles.toLocaleString();
+  el('m-verts').textContent = entry.vertices.toLocaleString();
+  el('m-tex').textContent = entry.textureSize + '²';
+  el('m-height').textContent = entry.heightMeters + ' m';
+  el('hotspot-note').textContent = '点击任意圆点';
+  el('hotspot-list').innerHTML = (entry.hotspots || [])
+    .map(h => `<li><code>${h.id}</code> ${h.label}</li>`).join('');
+
+  updateChecks(entry, box.max.y - box.min.y);
+}
+
+// 点击拾取
+const ray = new THREE.Raycaster();
+const ndc = new THREE.Vector2();
+renderer.domElement.addEventListener('pointerdown', ev => {
+  const r = renderer.domElement.getBoundingClientRect();
+  ndc.x = ((ev.clientX - r.left) / r.width) * 2 - 1;
+  ndc.y = -((ev.clientY - r.top) / r.height) * 2 + 1;
+  ray.setFromCamera(ndc, camera);
+  const hit = ray.intersectObjects(markers, false)[0];
+  if (hit) {
+    const hs = hit.object.userData.hotspot;
+    el('hotspot-note').innerHTML = `<strong>${hs.label}</strong>（<code>${hs.id}</code>）<br>${hs.note}`;
+    // 对应契约事件，便于 P3 对照
+    window.dispatchEvent(new CustomEvent('hotspot:select', {
+      detail: { provinceId: currentEntry.provinceId, hotspotId: hs.id }
+    }));
+  }
+});
+
+el('btn-reset').addEventListener('click', () => {
+  if (!current) return;
+  const box = new THREE.Box3().setFromObject(current);
+  resetView(box.max.y - box.min.y);
+});
+
+el('btn-manifest').addEventListener('click', () => {
+  if (!currentEntry) return;
+  const blob = new Blob([JSON.stringify(currentEntry.hotspots, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `hotspots-${currentEntry.provinceId || 'base'}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+window.addEventListener('resize', () => {
+  const w = host.clientWidth, h = host.clientHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+});
+
+function tick() {
+  controls.update();
+  renderer.render(scene, camera);
+  requestAnimationFrame(tick);
+}
+tick();
+
+// 载入清单
+try {
+  const manifest = await fetch('/data/assets/ding-manifest.json').then(r => r.json());
+  const models = [...manifest.models, ...(manifest.lod1 ? [manifest.lod1] : [])];
+  const sel = el('model-select');
+  sel.innerHTML = models.map((m, i) =>
+    `<option value="${i}">${m.file.replace('models/', '')}${m.provinceId ? ' · ' + m.label : ''}</option>`
+  ).join('');
+  sel.addEventListener('change', () => load(models[Number(sel.value)]));
+  await load(models[0]);
+} catch (err) {
+  el('checks').innerHTML = `<li>❌ 清单加载失败：<code>${err.message}</code></li>`;
+}
+</script>
+</body>
+</html>

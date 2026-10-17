@@ -7,3 +7,7 @@ dist/
 .DS_Store
 Thumbs.db
 *.log
+
+# Python 缓存（build_ding.py 运行产生）
+__pycache__/
+*.pyc
