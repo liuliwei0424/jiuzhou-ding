@@ -1,20 +1,29 @@
-import './style.css';
+import "./style.css";
+import "./restoration.css";
+import { ArchaeologyView } from "./restoration.js";
 
-const app = document.querySelector('#app');
+const app = document.querySelector("#app");
+
 app.innerHTML = `
-  <main class="shell">
-    <header class="topbar">
-      <h1>九州鼎</h1>
-      <p class="disclaimer">艺术复原示意，非考古还原</p>
-    </header>
-    <section class="workspace" aria-label="九州鼎交互场景">
-      <div id="scene-root" class="scene-root" aria-label="3D 场景加载区域">
-        <p>3D 场景挂载点（由 P3 接入 Three.js）</p>
+  <a class="skip-link" href="#archaeology-root">跳到器形复原对照</a>
+  <header class="team-topbar">
+    <div class="team-brand">
+      <span class="team-brand-mark" aria-hidden="true">九</span>
+      <div>
+        <p>数字展陈 · P4</p>
+        <h1>九州鼎</h1>
       </div>
-      <aside id="side-panel" class="side-panel" aria-label="九州信息面板">
-        <h2>九州信息</h2>
-        <p>信息面板挂载点（由 P4 实现）</p>
-      </aside>
-    </section>
-  </main>
+    </div>
+    <div class="team-topbar-meta">
+      <span class="team-section-label">青铜器复原对照</span>
+      <span class="team-disclaimer">依据公开资料重建 · 非考古扫描还原</span>
+    </div>
+  </header>
+  <main id="archaeology-root" aria-label="三件历史青铜鼎复原对照"></main>
 `;
+
+const view = new ArchaeologyView(app.querySelector("#archaeology-root"));
+
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => view.destroy());
+}
